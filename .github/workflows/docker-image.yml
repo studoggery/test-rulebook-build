@@ -30,8 +30,8 @@ jobs:
         mv rulebook.pdf $EXPORTDIR/rulebook.pdf
   
     - name: Export Rulebook
-        uses: actions/upload-artifact@v2
-        with:
-          name: rulebook
-          path: $EXPORTDIR/rulebook.pdf
+      uses: actions/upload-artifact@v2
+      with:
+        name: rulebook
+        path: $EXPORTDIR/rulebook.pdf
 
