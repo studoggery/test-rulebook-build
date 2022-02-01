@@ -29,10 +29,11 @@ jobs:
         cd rulebook
         latexmk -pdf rulebook.tex
         mv rulebook.pdf $EXPORTDIR/rulebook.pdf
+        ls $EXPORTDIR
   
     - name: Export Rulebook
       uses: actions/upload-artifact@v2
       with:
         name: rulebook
-        path: $EXPORTDIR/rulebook.pdf
+        path: ${EXPORTDIR}/rulebook.pdf
 
