@@ -1,8 +1,4 @@
-# This workflow will do system level testing and linting for the cards bot functions (game threads, sidebar, draft)
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
-# Author: sweickge
-
-name: Cardinals Bot CI Workflow
+name: Compile and Export MLR Rulebook
 
 on:
   push:
@@ -19,21 +15,16 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install dependencies
       run: sudo apt-get install texlive texlive-publishers texlive-science latexmk cm-super
-      #run: |
-        #sudo apt-get install -y latexmk texlive
+
     - name: Compile Rulebook
       run: |
-        #export EXPORTDIR=$(pwd)/public
-        #echo $EXPORTDIR
-        #mkdir -p $EXPORTDIR
         mkdir -p ${{ github.workspace }}/artifact
         cd rulebook
         latexmk -pdf rulebook.tex
-        #mv rulebook.pdf $EXPORTDIR/rulebook.pdf
         mv rulebook.pdf ${{ github.workspace }}/artifact/rulebook.pdf
         ls ${{ github.workspace }}/artifact
   
-    - name: Export Rulebook
+    - name: Save Rulebook.pdf Artifact
       uses: actions/upload-artifact@v2
       with:
         name: rulebook.pdf
