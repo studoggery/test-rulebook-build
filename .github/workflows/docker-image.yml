@@ -23,5 +23,9 @@ jobs:
         sudo apt-get install -y latexmk
     - name: Test
       run: |
-        echo "Test"
+        export EXPORTDIR=`pwd`/public
+        mkdir -p $EXPORTDIR
+        cd rulebook
+        latexmk -pdf rulebook.tex
+        mv rulebook.pdf $EXPORTDIR/rulebook.pdf
 
