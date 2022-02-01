@@ -23,17 +23,19 @@ jobs:
         #sudo apt-get install -y latexmk texlive
     - name: Compile Rulebook
       run: |
-        export EXPORTDIR=$(pwd)/public
-        echo $EXPORTDIR
-        mkdir -p $EXPORTDIR
+        #export EXPORTDIR=$(pwd)/public
+        #echo $EXPORTDIR
+        #mkdir -p $EXPORTDIR
+        mkdir -p ${{ github.workspace }}/artifact
         cd rulebook
         latexmk -pdf rulebook.tex
-        mv rulebook.pdf $EXPORTDIR/rulebook.pdf
-        ls $EXPORTDIR
+        #mv rulebook.pdf $EXPORTDIR/rulebook.pdf
+        mv rulebook.pdf ${{ github.workspace }}/artifact/rulebook.pdf
+        ls ${{ github.workspace }}/artifact
   
     - name: Export Rulebook
       uses: actions/upload-artifact@v2
       with:
         name: rulebook.pdf
-        path: ${{ env.EXPORTDIR }}
+        path: ${{ github.workspace }}/artifact/rulebook.pdf
 
