@@ -35,5 +35,5 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: rulebook.pdf
-        path: ${EXPORTDIR}
+        path: ${{ env.EXPORTDIR }}
 
