@@ -1,0 +1,83 @@
+%! TEX root = ../rulebook.tex
+
+\nonumsubsection{Park Factors}{sec:parkfactors}
+
+After a total range is calculated, park factors may be applied to it if the game is utilizing them 
+(that is, if the home team has created a park with custom park factors).
+
+Park factors work as a modifier similar to the pitcher hand bonus, 
+but is applied as multipliers for specific plate appearance outcomes. 
+A typical park may look like this:
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline 
+        & HR & 3B & 2B & 1B & BB \\
+        \hline 
+        No Stadium & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 \\
+        \hline 
+        Fake Shea Stadium & 0.879 & 1.042 & 1.032 & 0.963 & 1.000 \\
+        \hline
+    \end{tabular}
+\end{center}
+
+These multipliers act as modifiers on those specific outcomes. 
+With park factor adjustment, an outcome's size is thus multiplied by the given factor 
+and rounded to the nearest integer to get an adjusted size.
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline 
+        & HR & 3B & 2B & 1B & BB \\
+        \hline 
+        Combined Range for AB & 20 & 4 & 29 & 65 & 39 \\
+        \hline 
+        Fake Shea Stadium & 0.879 & 1.042 & 1.032 & 0.963 & 1.000 \\
+        \hline
+        Modified Range & 17.58 & 4.168 & 29.928 & 62.595 & 39 \\
+        \hline
+        \textbf{Rounded Final Range} & 18 & 4 & 30 & 63 & 39 \\
+        \hline 
+    \end{tabular}
+\end{center}
+
+In this case, a total of 3 points are taken away from hitter-beneficial ranges. 
+To balance this and keep the total range size at 501, the points are equally distributed to each pitcher-beneficial range.
+
+In the case of a net addition to hitter-beneficial ranges, points are taken out of pitcher-beneficial ranges, also contributed equally. 
+In some cases, a range may be too small to offer any additional points to balance the scale. 
+In this case, the range contributes all of its points and remains at size 0. 
+The remaining needed points are contributed from the other ranges.
+
+\textbf{Creation Rules:}\\
+The next table represents the Minimum and Maximum modifiers that can be given to each outcome during park creation.
+
+\begin{center}
+      \begin{tabular}{|c|c|c|c|c|c|}
+	\hline
+	& HR & 3B & 2B & 1B & BB \\
+	\hline
+	Min & 0.83 & 0.66 & 0.87 & 0.92 & 0.94 \\
+	\hline
+	Max & 1.24 & 1.69 & 1.23 & 1.08 & 1.08 \\
+	\hline
+     \end{tabular}
+\end{center}
+
+In order to assign these values to a park, for further balancing purposes, parks will start at a flat 1.00 multiplier and
+ will adjust towards the max/min values via a “Point Buy” system. Teams will have 15 points to spend on adjustments
+, and each point will be worth 1/10th of the distance to maximum or minimum values in each factor, with a limit of 10
+ points per factor. For example, adjusting HR factors would be +0.024 or -0.017 per point.
+
+\begin{center}
+      \begin{tabular}{|c|c|c|c|c|c|}
+	\hline
+	Effect per point & HR & 3B & 2B & 1B & BB \\
+	\hline
+	Towards Max & 0.024 & 0.069 & 0.023 & 0.008 & 0.006 \\
+	\hline
+	Towards Min & 0.017 & 0.034 & 0.013 & 0.008 & 0.008 \\
+	\hline
+     \end{tabular}
+\end{center}
+Park factors are maintained on the rosters sheet.

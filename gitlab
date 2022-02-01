@@ -1,0 +1,14 @@
+image: blang/latex
+
+pages:
+  script:
+    - export EXPORTDIR=`pwd`/public
+    - mkdir -p $EXPORTDIR
+    - cd rulebook
+    - latexmk -pdf rulebook.tex
+    - mv rulebook.pdf $EXPORTDIR/rulebook.pdf
+  artifacts:
+    paths:
+      - public/
+  only:
+    - master

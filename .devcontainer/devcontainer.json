@@ -1,0 +1,11 @@
+{
+    "dockerComposeFile": [
+        "docker-compose.yml",
+        "docker-compose-ext.yml"
+    ],
+    "service": "dev",
+    "workspaceFolder": "/workspace",
+    "extensions": [
+        "james-yu.latex-workshop"
+    ]
+}

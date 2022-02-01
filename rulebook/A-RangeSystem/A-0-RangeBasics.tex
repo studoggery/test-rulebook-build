@@ -1,0 +1,59 @@
+%! TEX root = ../rulebook.tex
+
+\nonumsubsection{Range Basics}{sec:rangebasics}
+The outcome of a given play depends primarily on the difference between the swing and pitch numbers, 
+but also varies based on the batter and pitcher types, hands, and pitcher hand bonus.
+
+Each batter type contains 250 “points” spread across each plate appearance outcome (HR, 1B, etc.).
+\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+		\hline 
+		              & HR & 3B & 2B & 1B & BB & FO & K  & PO & RGO & LGO & Total \\
+		\hline 
+		Basic Neutral & 11 & 3  & 20 & 37 & 20 & 51 & 49 & 10 & 24  & 25  & 250   \\
+		\hline
+	\end{tabular}
+\end{center}
+
+Each pitcher type contains 251 "points".
+\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+		\hline 
+		               & HR & 3B & 2B & 1B & BB & FO & K  & PO & RGO & LGO & Total \\
+		\hline 
+		Basic Balanced & 14 & 2  & 15 & 36 & 20 & 56 & 44 & 12 & 27  & 25  & 251   \\
+		\hline
+	\end{tabular}
+\end{center}
+
+When a batter type and pitcher type are added together, then, we get a total of 501 “points” spread across each outcome. 
+This determines the size of the outcome range.
+
+\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+		\hline 
+		               & HR & 3B & 2B & 1B & BB & FO  & K  & PO & RGO & LGO & Total \\
+		\hline 
+		Basic Neutral  & 11 & 3  & 20 & 37 & 20 & 51  & 49 & 10 & 24  & 25  & 250   \\
+		\hline 
+		Basic Balanced & 14 & 2  & 15 & 36 & 20 & 56  & 44 & 12 & 27  & 25  & 251   \\
+		\hline
+		\textbf{Total} & 25 & 5  & 35 & 73 & 40 & 107 & 93 & 22 & 51  & 50  & 501   \\
+		\hline
+	\end{tabular}
+\end{center}
+
+When these outcome ranges are stacked in a sequence, it represents the total spectrum of the difference ranges.
+
+\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+		\hline 
+		               & HR   & 3B    & 2B    & 1B     & BB      & FO      & K       & PO      & RGO     & LGO     \\
+		\hline 
+		\textbf{Total} & 25   & 5     & 35    & 73     & 40      & 107     & 93      & 22      & 51      & 50      \\
+		\hline 
+		\textbf{Diffs} & 0-24 & 25-29 & 30-64 & 65-137 & 138-177 & 178-284 & 285-377 & 378-399 & 400-450 & 451-500 \\
+		\hline
+	\end{tabular}
+\end{center}
+

@@ -1,0 +1,9 @@
+version: '3'
+services:
+  dev:
+    command: sleep infinity
+    volumes:
+      - ..:/workspace
+    build: 
+      context: .
+      dockerfile: Dockerfile

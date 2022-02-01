@@ -1,0 +1,97 @@
+\documentclass{article}
+
+% Lets tables wrap over page breaks
+\usepackage{longtable}
+
+% Better font (Close to Times New Roman)
+\usepackage{mathptmx}
+
+% Widens the margins from their default
+\usepackage[letterpaper,margin=1in]{geometry}
+
+% Allows nesting deeper than 5 levels
+\usepackage{enumitem}
+\setlistdepth{9}
+\newlist{deepEnumerate}{enumerate}{9}
+\setlist[deepEnumerate,1]{label=\arabic*.}
+\setlist[deepEnumerate,2]{label=\alph*.}
+\setlist[deepEnumerate,3]{label=\roman*.}
+\setlist[deepEnumerate,4]{label=\arabic*.}
+\setlist[deepEnumerate,5]{label=\alph*.}
+\setlist[deepEnumerate,6]{label=\roman*.}
+\setlist[deepEnumerate,7]{label=\arabic*.}
+\setlist[deepEnumerate,8]{label=\alph*.}
+\setlist[deepEnumerate,9]{label=\roman*.}
+
+% hyperref allows for hyperlinks within the doc
+% config tells hyperref not to weirdly color links in the text
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=blue
+}
+
+% Allows for unnumbered sections that still
+% get added to the table of contents
+\newcommand{\nonumsection}[2]{
+    \section*{#1}
+    \label{#2}
+    \addcontentsline{toc}{section}{\nameref{#2}}
+}
+\newcommand{\nonumsubsection}[2]{
+    \subsection*{#1}
+    \label{#2}
+    \addcontentsline{toc}{subsection}{\nameref{#2}}
+}
+\newcommand{\nonumsubsubsection}[2]{
+    \subsubsection*{#1}
+    \label{#2}
+    \addcontentsline{toc}{subsubsection}{\nameref{#2}}
+}
+
+% Set up line breaks between paragraphs, 
+% and no indents at the start of new ones
+\usepackage[parfill]{parskip}
+
+% Document Headers
+\title{MLR Rulebook}
+\author{/r/fakebaseball}
+\date{Last Revision: January 8, 2022\\PDF Built: \today}
+
+% Document Structure
+% Please don't add content in here,
+% place it in a respective file,
+% and then use \input
+\begin{document}
+
+\maketitle
+\pagebreak
+
+\tableofcontents
+\hypersetup{linkcolor=blue}
+\pagebreak
+
+\input{0-Introduction/0-Introduction.tex}
+
+% If the intro grows, there should probably be \pagebreak here
+
+\nonumsection{Rules}{sec:rules}
+
+\input{1-OperationAndConduct/1-OperationAndConduct.tex}
+\pagebreak
+\input{2-Players/2-Players.tex}
+\pagebreak
+\input{3-Gameplay/3-Gameplay.tex}
+\pagebreak
+\input{4-MiLR/4-MiLR.tex}
+\pagebreak
+
+% Appendixes
+\input{A-RangeSystem/A-RangeSystem.tex}
+\pagebreak
+\input{A2-Committee/A2-Constitution.tex}
+
+\end{document}
