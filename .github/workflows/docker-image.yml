@@ -23,7 +23,8 @@ jobs:
         #sudo apt-get install -y latexmk texlive
     - name: Compile Rulebook
       run: |
-        export EXPORTDIR=`pwd`/public
+        export EXPORTDIR=$(pwd)/public
+        echo $EXPORTDIR
         mkdir -p $EXPORTDIR
         cd rulebook
         latexmk -pdf rulebook.tex
