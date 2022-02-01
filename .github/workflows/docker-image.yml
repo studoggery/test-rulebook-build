@@ -20,12 +20,18 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install dependencies
       run: |
-        sudo apt-get install -y latexmk texlive-full
-    - name: Test
+        sudo apt-get install -y latexmk
+    - name: Compile Rulebook
       run: |
         export EXPORTDIR=`pwd`/public
         mkdir -p $EXPORTDIR
         cd rulebook
         latexmk -pdf rulebook.tex
         mv rulebook.pdf $EXPORTDIR/rulebook.pdf
+  
+    - name: Export Rulebook
+        uses: actions/upload-artifact@v2
+        with:
+          name: rulebook
+          path: $EXPORTDIR/rulebook.pdf
 
